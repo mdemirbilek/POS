@@ -1,0 +1,170 @@
+﻿@model POS.Module
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Module</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Dawca
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department1.DeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuleCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModuleCode)
+        </dd>
+
+        <dt>
+            Biorca
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ECTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreparedYear.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreparedYear.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicYear.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudyType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuleStatusSet.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModuleStatusSet.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

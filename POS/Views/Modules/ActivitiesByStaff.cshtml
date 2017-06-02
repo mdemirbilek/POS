@@ -1,0 +1,130 @@
+﻿@model IEnumerable<POS.Module>
+
+@{
+    ViewBag.Title = "Staff Activities";
+
+    string renk = "red";
+    string renk2 = "black";
+}
+
+<h2>Activities of @ViewBag.StaffName</h2>
+<h3>Total Activity Hours: @ViewBag.AssignedTotalHours</h3>
+
+<br />
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <td width="30%">
+                @Html.DropDownList("StaffList")
+            </td>
+            <td width="20%">
+                @Html.Hidden("isSearched", "YES")
+                <input type="submit" value="Search" />
+            </td>
+            <td width="50%">&nbsp;</td>
+        </tr>
+    </table>
+}
+<br />
+
+<table class="table">
+    <tr style="border-bottom-color:black; border-bottom-style:solid; background-color:lightgray;">
+        <th>
+            Dawca
+        </th>
+        <th>
+            Module Name
+        </th>
+        <th>
+            Module Name (English)
+        </th>
+        <th>
+            Biorca
+        </th>
+        <th>
+            Specialization Name
+        </th>
+        <th>
+            ECTS
+        </th>
+        <th>
+            Course Type
+        </th>
+        <th>
+            Module Coordinator
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.ModuleStatusSet.Status == "Confirmed")
+        {
+            renk = "green";
+        }
+        else
+        {
+            renk = "red";
+        }
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department1.DeptCode)
+            </td>
+            <td style="font-size:medium">
+                <b>@Html.DisplayFor(modelItem => item.Name)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameEN)
+            </td>
+            <td>
+                <b>@Html.DisplayFor(modelItem => item.Department.DeptCode)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Staff.Name)
+            </td>
+            <td style="font-weight:bold; color:@renk">
+                @Html.DisplayFor(modelItem => item.ModuleStatusSet.Status)
+            </td>
+        </tr>
+
+        <tr class="alert-info" style="border-bottom-color:black; border-bottom-style:solid; border-bottom-width:2px;">
+            <td colspan="1">
+                Activities
+            </td>
+            <td colspan="8">
+                <ul>
+                    @foreach (var act in item.Activities)
+                    {
+                        if (act.StaffId == 0)
+                        {
+                            renk2 = "red";
+                        }
+                        else
+                        {
+                            renk2 = "black";
+                        }
+
+                        <li>
+                            Activity Type: <b>@act.ActivityType.Name</b> - Total Hours: <b>@act.TotalHours.ToString()</b> - Staff:&nbsp;<div style="font-weight:bold; color:@renk2; display:inline;">@act.Staff.Name</div> - Group No: <b>@act.GroupNumber</b> - Note:&nbsp;<div style="font-weight:bold; color:black; display:inline;">@act.Note</div>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+
+    }
+
+</table>

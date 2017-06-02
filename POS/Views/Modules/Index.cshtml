@@ -1,0 +1,167 @@
+﻿@model IEnumerable<POS.Module>
+
+@{
+    ViewBag.Title = "Modules";
+
+    string renk = "red";
+    string renk2 = "black";
+}
+
+<h2>Module List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                Department
+            </th>
+            <th>
+                Degree Type
+            </th>
+            <th>
+                Semester
+            </th>
+            <th>
+                Study Type
+            </th>
+            <th>
+                Program Language
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DropDownList("DepartmentList")
+            </td>
+            <td>
+                @Html.DropDownList("DegreeTypeList")
+            </td>
+            <td>
+                @Html.DropDownList("SemesterList")
+            </td>
+            <td>
+                @Html.DropDownList("StudyTypeList")
+            </td>
+            <td>
+                @Html.DropDownList("LanguageList")
+            </td>
+            <td>
+                @Html.Hidden("isSearched", "YES")
+                <input type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+
+}
+
+<table class="table">
+    <tr style="border-bottom-color:black; border-bottom-style:solid; background-color:lightgray;">
+        <th>
+            Dawca
+        </th>
+        <th>
+            Module Name
+        </th>
+        <th>
+            Module Name (English)
+        </th>
+        <th>
+            Biorca
+        </th>
+        <th>
+            Specialization Name
+        </th>
+        <th>
+            ECTS
+        </th>
+        <th>
+            Course Type
+        </th>
+        <th>
+            Module Coordinator
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.ModuleStatusSet.Status == "Confirmed")
+        {
+            renk = "green";
+        }
+        else
+        {
+            renk = "red";
+        }
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department1.DeptCode)
+            </td>
+            <td style="font-size:medium">
+                <b>@Html.DisplayFor(modelItem => item.Name)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameEN)
+            </td>
+            <td>
+                <b>@Html.DisplayFor(modelItem => item.Department.DeptCode)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Staff.Name)
+            </td>
+            <td style="font-weight:bold; color:@renk">
+                @Html.DisplayFor(modelItem => item.ModuleStatusSet.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "AdminEdit", new { id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+
+        <tr class="alert-info" style="border-bottom-color:black; border-bottom-style:solid; border-bottom-width:2px;">
+            <td colspan="1">
+                @Html.ActionLink("Activities(" + item.Activities.Count + ")", "Index", "Activities", new { id = item.Id }, null)
+            </td>
+            <td colspan="9">
+                <ul>
+                    @foreach (var act in item.Activities)
+                    {
+                        if (act.StaffId == 0)
+                        {
+                            renk2 = "red";
+                        }
+                        else
+                        {
+                            renk2 = "black";
+                        }
+
+                        <li>
+                            Activity Type: <b>@act.ActivityType.Name</b> - Total Hours: <b>@act.TotalHours.ToString()</b> - Staff:&nbsp;<div style="font-weight:bold; color:@renk2; display:inline;">@act.Staff.Name</div> - Group No: <b>@act.GroupNumber</b> - Note:&nbsp;<div style="font-weight:bold; color:black; display:inline;">@act.Note</div>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+
+    }
+
+</table>

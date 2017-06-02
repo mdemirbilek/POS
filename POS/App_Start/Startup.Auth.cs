@@ -6,11 +6,30 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using POS.Models;
+using OwinCas;
+using System.Configuration;
+
+
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
+using Microsoft.Owin.Infrastructure;
 
 namespace POS
 {
     public partial class Startup
     {
+
+        private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+        private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+        private static string tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
+        private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];
+        private static string authority = aadInstance + tenantId;
+
+
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -19,10 +38,10 @@ namespace POS
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
-            // Enable the application to use a cookie to store information for the signed in user
-            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            // Configure the sign in cookie
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
+        // Enable the application to use a cookie to store information for the signed in user
+        // and to use a cookie to temporarily store information about a user logging in with a third party login provider
+        // Configure the sign in cookie
+        app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
@@ -47,8 +66,8 @@ namespace POS
 
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            //    clientId: "b70e917b-1a92-4ba2-85e5-6aa497fdec45",
+            //    clientSecret: "RgB4Nj9VEIotdWPbL6e1ggUfHme1FH8qbK4lc7tPRRM=");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
@@ -63,6 +82,29 @@ namespace POS
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+
+            //app.UseOpenIdConnectAuthentication(
+            //    new OpenIdConnectAuthenticationOptions
+            //    {
+            //        ClientId = clientId,
+            //        Caption = "Vistula Email Account",
+            //        Authority = authority,
+            //        PostLogoutRedirectUri = postLogoutRedirectUri,
+            //        ProtocolValidator = new Microsoft.IdentityModel.Protocols.OpenIdConnectProtocolValidator()
+            //        {
+            //            RequireNonce = true
+            //        }
+            //    });
+
+
+
+            CasAuthenticationOptions casOptions = new CasAuthenticationOptions();
+            casOptions.CasServerUrlBase = "https://secure.vistula.edu.pl/cas";
+            casOptions.Caption = "Vistula Single Sign-On";
+            casOptions.AuthenticationType = "Vistula SSO";
+            app.UseCasAuthentication(casOptions);
+
         }
     }
 }

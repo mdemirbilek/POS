@@ -1,0 +1,92 @@
+﻿@model IEnumerable<POS.vwRoomAvailability>
+
+@{
+    ViewBag.Title = "Available Rooms";
+}
+
+@{
+    var controller = ViewContext.Controller as POS.Controllers.AvailableRoomsController;
+    int i = 0;
+    string today = "(" + DateTime.Now.ToShortDateString() + ", " + DateTime.Now.DayOfWeek.ToString() + ")";
+}
+
+<h2>Available Rooms @today</h2>
+
+<table class="table">
+    <tr>
+        <th width="20%">
+            Room Name
+        </th>
+        <th colspan="4">
+            <b>08:00</b>
+        </th>
+        <th colspan="4">
+            <b>09:00</b>
+        </th>
+        <th colspan="4">
+            <b>10:00</b>
+        </th>
+        <th colspan="4">
+            <b>11:00</b>
+        </th>
+        <th colspan="4">
+            <b>12:00</b>
+        </th>
+        <th colspan="4">
+            <b>13:00</b>
+        </th>
+        <th colspan="4">
+            <b>14:00</b>
+        </th>
+        <th colspan="4">
+            <b>15:00</b>
+        </th>
+        <th colspan="4">
+            <b>16:00</b>
+        </th>
+        <th colspan="4">
+            <b>17:00</b>
+        </th>
+        <th colspan="4">
+            <b>18:00</b>
+        </th>
+        <th colspan="4">
+            <b>19:00</b>
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        if (i % 48 == 0)
+        {
+            @:<tr>
+                <td width="20%">
+                   <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                </td>
+        }
+
+        if (i % 4 == 0)
+        {
+            <td style="border-left-style:solid; background-color:@item.Color"></td>
+        }
+        else if (i % 2 == 0)
+        {
+            <td style="border-left-style:ridge; background-color:@item.Color"></td>
+        }
+        else
+        {
+            <td style="background-color:@item.Color"></td>
+        }
+
+        if ((i + 1) % 48 == 0)
+        {
+            @:</tr>
+        }
+        i = i + 1;
+    }
+
+</table>
+
+
+

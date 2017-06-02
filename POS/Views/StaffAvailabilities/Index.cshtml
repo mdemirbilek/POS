@@ -1,0 +1,374 @@
+﻿@model POS.StaffAvailability
+
+@{
+    ViewBag.Title = "My Available Times";
+}
+
+@{
+    var controller = ViewContext.Controller as POS.Controllers.StaffAvailabilitiesController;
+}
+
+<h2>My Available Times</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            <b>08:00</b>
+        </th>
+        <th>
+            <b>09:00</b>
+        </th>
+        <th>
+            <b>10:00</b>
+        </th>
+        <th>
+            <b>11:00</b>
+        </th>
+        <th>
+            <b>12:00</b>
+        </th>
+        <th>
+            <b>13:00</b>
+        </th>
+        <th>
+            <b>14:00</b>
+        </th>
+        <th>
+            <b>15:00</b>
+        </th>
+        <th>
+            <b>16:00</b>
+        </th>
+        <th>
+            <b>17:00</b>
+        </th>
+        <th>
+            <b>18:00</b>
+        </th>
+        <th>
+            <b>19:00</b>
+        </th>
+        <th>
+            <b>20:00</b>
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Monday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon08)">
+            @Html.EditorFor(model => model.Mon08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon09)">
+            @Html.EditorFor(model => model.Mon09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon10)">
+            @Html.EditorFor(model => model.Mon10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon11)">
+            @Html.EditorFor(model => model.Mon11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon12)">
+            @Html.EditorFor(model => model.Mon12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon13)">
+            @Html.EditorFor(model => model.Mon13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon14)">
+            @Html.EditorFor(model => model.Mon14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon15)">
+            @Html.EditorFor(model => model.Mon15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon16)">
+            @Html.EditorFor(model => model.Mon16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon17)">
+            @Html.EditorFor(model => model.Mon17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon18)">
+            @Html.EditorFor(model => model.Mon18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon19)">
+            @Html.EditorFor(model => model.Mon19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Mon20)">
+            @Html.EditorFor(model => model.Mon20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Tuesday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue08)">
+            @Html.EditorFor(model => model.Tue08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue09)">
+            @Html.EditorFor(model => model.Tue09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue10)">
+            @Html.EditorFor(model => model.Tue10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue11)">
+            @Html.EditorFor(model => model.Tue11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue12)">
+            @Html.EditorFor(model => model.Tue12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue13)">
+            @Html.EditorFor(model => model.Tue13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue14)">
+            @Html.EditorFor(model => model.Tue14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue15)">
+            @Html.EditorFor(model => model.Tue15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue16)">
+            @Html.EditorFor(model => model.Tue16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue17)">
+            @Html.EditorFor(model => model.Tue17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue18)">
+            @Html.EditorFor(model => model.Tue18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue19)">
+            @Html.EditorFor(model => model.Tue19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Tue20)">
+            @Html.EditorFor(model => model.Tue20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Wednesday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed08)">
+            @Html.EditorFor(model => model.Wed08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed09)">
+            @Html.EditorFor(model => model.Wed09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed10)">
+            @Html.EditorFor(model => model.Wed10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed11)">
+            @Html.EditorFor(model => model.Wed11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed12)">
+            @Html.EditorFor(model => model.Wed12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed13)">
+            @Html.EditorFor(model => model.Wed13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed14)">
+            @Html.EditorFor(model => model.Wed14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed15)">
+            @Html.EditorFor(model => model.Wed15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed16)">
+            @Html.EditorFor(model => model.Wed16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed17)">
+            @Html.EditorFor(model => model.Wed17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed18)">
+            @Html.EditorFor(model => model.Wed18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed19)">
+            @Html.EditorFor(model => model.Wed19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Wed20)">
+            @Html.EditorFor(model => model.Wed20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Thusrday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu08)">
+            @Html.EditorFor(model => model.Thu08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu09)">
+            @Html.EditorFor(model => model.Thu09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu10)">
+            @Html.EditorFor(model => model.Thu10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu11)">
+            @Html.EditorFor(model => model.Thu11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu12)">
+            @Html.EditorFor(model => model.Thu12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu13)">
+            @Html.EditorFor(model => model.Thu13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu14)">
+            @Html.EditorFor(model => model.Thu14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu15)">
+            @Html.EditorFor(model => model.Thu15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu16)">
+            @Html.EditorFor(model => model.Thu16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu17)">
+            @Html.EditorFor(model => model.Thu17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu18)">
+            @Html.EditorFor(model => model.Thu18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu19)">
+            @Html.EditorFor(model => model.Thu19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Thu20)">
+            @Html.EditorFor(model => model.Thu20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Friday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri08)">
+            @Html.EditorFor(model => model.Fri08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri09)">
+            @Html.EditorFor(model => model.Fri09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri10)">
+            @Html.EditorFor(model => model.Fri10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri11)">
+            @Html.EditorFor(model => model.Fri11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri12)">
+            @Html.EditorFor(model => model.Fri12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri13)">
+            @Html.EditorFor(model => model.Fri13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri14)">
+            @Html.EditorFor(model => model.Fri14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri15)">
+            @Html.EditorFor(model => model.Fri15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri16)">
+            @Html.EditorFor(model => model.Fri16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri17)">
+            @Html.EditorFor(model => model.Fri17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri18)">
+            @Html.EditorFor(model => model.Fri18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri19)">
+            @Html.EditorFor(model => model.Fri19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Fri20)">
+            @Html.EditorFor(model => model.Fri20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Saturday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat08)">
+            @Html.EditorFor(model => model.Sat08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat09)">
+            @Html.EditorFor(model => model.Sat09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat10)">
+            @Html.EditorFor(model => model.Sat10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat11)">
+            @Html.EditorFor(model => model.Sat11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat12)">
+            @Html.EditorFor(model => model.Sat12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat13)">
+            @Html.EditorFor(model => model.Sat13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat14)">
+            @Html.EditorFor(model => model.Sat14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat15)">
+            @Html.EditorFor(model => model.Sat15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat16)">
+            @Html.EditorFor(model => model.Sat16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat17)">
+            @Html.EditorFor(model => model.Sat17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat18)">
+            @Html.EditorFor(model => model.Sat18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat19)">
+            @Html.EditorFor(model => model.Sat19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sat20)">
+            @Html.EditorFor(model => model.Sat20)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Sunday</b>
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun08)">
+            @Html.EditorFor(model => model.Sun08)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun09)">
+            @Html.EditorFor(model => model.Sun09)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun10)">
+            @Html.EditorFor(model => model.Sun10)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun11)">
+            @Html.EditorFor(model => model.Sun11)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun12)">
+            @Html.EditorFor(model => model.Sun12)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun13)">
+            @Html.EditorFor(model => model.Sun13)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun14)">
+            @Html.EditorFor(model => model.Sun14)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun15)">
+            @Html.EditorFor(model => model.Sun15)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun16)">
+            @Html.EditorFor(model => model.Sun16)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun17)">
+            @Html.EditorFor(model => model.Sun17)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun18)">
+            @Html.EditorFor(model => model.Sun18)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun19)">
+            @Html.EditorFor(model => model.Sun19)
+        </td>
+        <td style="background-color:@controller.GetColor(Model.Sun20)">
+            @Html.EditorFor(model => model.Sun20)
+        </td>
+    </tr>
+
+
+</table>

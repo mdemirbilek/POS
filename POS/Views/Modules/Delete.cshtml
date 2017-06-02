@@ -1,0 +1,176 @@
+﻿@model POS.Module
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Module</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Dawca
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department1.DeptCode)
+        </dd>
+
+        <dt>
+            Module Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Module Name In English
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameEN)
+        </dd>
+
+        <dt>
+            Module Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModuleCode)
+        </dd>
+
+        <dt>
+            Biorca
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        <dt>
+            Specialization Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization)
+        </dd>
+
+        <dt>
+            ECTS
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECTS)
+        </dd>
+
+        <dt>
+            Is Foreign Language?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFL)
+        </dd>
+
+        <dt>
+            Note
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @IsAjax  Active
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            Prepared Year
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreparedYear.Name)
+        </dd>
+
+        <dt>
+            Academic Year
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.Name)
+        </dd>
+
+        <dt>
+            Course Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseType.Name)
+        </dd>
+
+        <dt>
+            Degree Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeType.Name)
+        </dd>
+
+        <dt>
+            HLanguage
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.Name)
+        </dd>
+
+        <dt>
+            Semester
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester.Name)
+        </dd>
+
+        <dt>
+            Module Coordinator
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.Name)
+        </dd>
+
+        <dt>
+            Study Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyType.Name)
+        </dd>
+
+        <dt>
+            Confirmation
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModuleStatusSet.Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<POS.Department>
+
+@{
+    ViewBag.Title = "My Departments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Departments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Department
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Modules", "DeptModules", "Modules", new { id = item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>

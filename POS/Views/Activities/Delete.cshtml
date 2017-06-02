@@ -1,0 +1,80 @@
+﻿@model POS.Activity
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Delete Activity of</h3>
+<h2>@ViewBag.ModuleName</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Activity Type
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActivityType.Name)
+        </dd>
+        <dt>
+            Evaluation Type
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EvalType.Name)
+        </dd>
+        <dt>
+            Total Hours
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalHours)
+        </dd>
+        <dt>
+            Room Preference
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomType.Name)
+        </dd>
+        <dt>
+            Staff Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Staff.Name)
+        </dd>
+        <dt>
+            Group No
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GroupNumber)
+        </dd>
+        <dt>
+            Note
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt>
+            Modified
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+        <dt>
+            Modified By
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", "Activities", new { id = ViewBag.MyModuleId }, null)
+        </div>
+    }
+</div>
